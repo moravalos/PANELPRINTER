@@ -1,0 +1,107 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Container */
+header {
+    margin-bottom: 30px; /* Ajusta los píxeles según el espacio que desees */
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1354a2;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Desktop Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    color: #ffffff;
+}
+
+/* Hide Checkbox and Hamburger by Default */
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    background-color: #ffffff;
+    height: 3px;
+    width: 25px;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+/* Responsive Mobile Layout (768px or smaller) */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Show hamburger button */
+    }
+
+    .nav-links {
+        display: none; /* Hide standard nav links */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #1a1a1a;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .nav-links a {
+        padding: 0.75rem 2rem;
+        width: 100%;
+    }
+
+    /* JavaScript-free Toggle Logic using Checkbox */
+    .menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    /* Optional: Hamburger Animation to 'X' when checked */
+    .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+}
